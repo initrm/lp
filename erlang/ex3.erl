@@ -30,7 +30,7 @@ init_processes(_) -> [].
 % behaviour of the spawned processes, prints the received message in loop
 % gracefully exit when receive the atom 'quit'
 process_behaviour() ->
-    receive
-        quit -> io:format("(PID: ~p) Gracefully shutting down.~n", [self()]);
-        Message -> io:format("(PID: ~p) Received message: ~p.~n", [self(), Message]), process_behaviour()
-    end.
+  receive
+    quit -> io:format("(PID: ~p) Gracefully shutting down.~n", [self()]);
+    Message -> io:format("(PID: ~p) Received message: ~p.~n", [self(), Message]), process_behaviour()
+  end.

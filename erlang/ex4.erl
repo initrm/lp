@@ -8,7 +8,7 @@ print(Term) -> echo ! {print, Term}, ok.
 stop() -> echo ! stop, ok.
 
 loop() ->
-    receive
-        {print, M} -> io:format("~p~n", [M]), loop();
-        stop -> void
-    end.
+  receive
+    {print, M} -> io:format("~p~n", [M]), loop();
+    stop -> void
+  end.

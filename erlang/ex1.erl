@@ -17,10 +17,10 @@ remove_specials(S) -> [L || L <- S, is_alpha(L) ].
 pvt_palindrome([]) -> true;
 pvt_palindrome([_|[]]) -> true;
 pvt_palindrome([H|TL]) ->
-    case H == lists:nth(1, string:reverse(TL)) of
-        true -> pvt_palindrome(string:substr(TL, 1, string:len(TL) - 1));
-        false -> false
-    end.
+  case H == lists:nth(1, string:reverse(TL)) of
+    true -> pvt_palindrome(string:substr(TL, 1, string:len(TL) - 1));
+    false -> false
+  end.
 
 is_palindrome(S) -> pvt_palindrome(string:to_lower(remove_specials(S))).
 
@@ -29,10 +29,10 @@ is_palindrome(S) -> pvt_palindrome(string:to_lower(remove_specials(S))).
 % or more of the strings in the dictionary;
 is_an_anagram(_, []) -> false;
 is_an_anagram(S, [H|TL]) -> 
-    case string:len(S--H) of
-        0 -> true;
-        _ -> is_an_anagram(S, TL)
-    end.
+  case string:len(S--H) of
+    0 -> true;
+    _ -> is_an_anagram(S, TL)
+  end.
 
 % factors: int → int list 
 % given a number calculates all its prime factors;
@@ -45,11 +45,11 @@ factors(N, CP) -> factors(N, next_prime(CP)).
 % is_prime: int → boolean
 % returns true if the given number is prime
 is_prime(N) -> 
-    case N of
-        0 -> false;
-        1 -> true;
-        _ -> is_prime(N, 2)
-    end.
+  case N of
+    0 -> false;
+    1 -> true;
+    _ -> is_prime(N, 2)
+  end.
 
 is_prime(N, D) when D == N -> true;
 is_prime(N, D) when (N rem D) == 0 -> false;
@@ -58,10 +58,10 @@ is_prime(N, D) -> is_prime(N, D+1).
 % next_prime_number: int → int
 % calculates the nearest greater prime number from N;
 next_prime(N) ->
-    case is_prime(N+1) of
-        true -> N+1;
-        false -> next_prime(N+1)
-    end.
+  case is_prime(N+1) of
+    true -> N+1;
+    false -> next_prime(N+1)
+  end.
 
 % is_proper: int → boolean 
 % given a number calculates if it is a perfect number or not, where a perfect number 
