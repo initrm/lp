@@ -1,3 +1,9 @@
 *playground*
 .DS_Store
 *.beam
+*.old
+*.new
+*.sh
+*.all
+*target
+*.bsp
