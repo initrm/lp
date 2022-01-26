@@ -3,12 +3,15 @@ package exam
 import exam.LogParser
 import scala.io.Source
 
+/** Application */
 object Main extends App {
-  // leggo gli argomenti forniti uno alla volta
+  // reads one by one the arguments provided from the command line
   args.foreach(arg => {
+    // grabs the content of the file
     val src = Source.fromFile(arg)
     val content = src.mkString
     src.close()
+    // parses the content of the file using the LogParser
     val parser = new LogParser()
     parser.parseAll(parser.tasks, content) match {
       case parser.Success(tasks, _) => 
